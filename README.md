@@ -1,18 +1,23 @@
 # Complete Setup Guide for Word2Vec Application
 
-## 1. DNS Configuration
-1. Open the DNS configuration file:
+## 1. Configuring Iranian DNS Resolvers
+
+### Manual Configuration
+1. Open the DNS resolver configuration file:
 ```bash
 sudo nano /etc/resolv.conf
 ```
 
-2. Add the following DNS servers to the beginning of the file:
+2. Add these DNS server addresses ([source](https://shecan.ir/)) to the top of the file:
 ```
 nameserver 178.22.122.100
 nameserver 185.51.200.2
 ```
 
-3. Save and close the file
+3. Save and exit (Ctrl + X, then Y, then Enter)
+
+### Important Note
+This configuration is temporary and will reset after system reboot.
 
 ## 2. System Preparation and Docker Installation
 
