@@ -91,10 +91,10 @@ services:
       context: ./word2vec-tree/
       dockerfile: Dockerfile
       args:
-        BACKEND_DOMAIN: ${BACKEND_DOMAIN:-http://word2vec:8000/}
+        BACKEND_DOMAIN: ${BACKEND_DOMAIN:-http://87.247.176.61:443/}
     container_name: word2vec-tree
     ports:
-      - "20000:3000"
+      - "80:3000"
     depends_on:
       - word2vec
     restart: unless-stopped
@@ -102,19 +102,16 @@ services:
       - custom_network
     environment:
       - NODE_ENV=production
-      - BACKEND_DOMAIN=${BACKEND_DOMAIN:-http://word2vec:8000/}
-
   word2vec:
     build:
       context: ./word2vec/
       dockerfile: Dockerfile
     container_name: word2vec
     ports:
-      - "20001:8000"
+      - "443:8000"
     restart: unless-stopped
     networks:
       - custom_network
-
 networks:
   custom_network:
     driver: bridge
